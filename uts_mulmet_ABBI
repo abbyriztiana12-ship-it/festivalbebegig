@@ -1,0 +1,486 @@
+Berikut adalah desain website lengkap untuk **Festival Bebegig Kecamatan Waluran Kabupaten Sukabumi** dengan tema budaya Sunda:
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Bebegig Kecamatan Waluran Kabupaten Sukabumi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: #2d5016;
+            overflow-x: hidden;
+        }
+
+        /* Warna Tema */
+        :root {
+            --hijau-sawah: #4a7c59;
+            --hijau-muda: #8fbc8f;
+            --coklat-tanah: #8b4513;
+            --coklat-muda: #d2b48c;
+            --hitam: #1a1a1a;
+            --putih: #f8f8f8;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--hijau-sawah), var(--hijau-muda));
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--putih);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo i {
+            color: var(--coklat-tanah);
+            margin-right: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--putih);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(74,124,89,0.8), rgba(74,124,89,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="sawah" cx="50%" cy="50%"><stop offset="0%" stop-color="%238fbc8f"/><stop offset="100%" stop-color="%234a7c59"/></radialGradient></defs><rect width="1200" height="800" fill="url(%23sawah)"/><path d="M0 600 Q300 550 600 580 Q900 610 1200 580 L1200 800 L0 800 Z" fill="%232d5016"/><circle cx="200" cy="450" r="3" fill="%23d2b48c"/><circle cx="400" cy="460" r="2" fill="%23d2b48c"/><circle cx="800" cy="470" r="3" fill="%23d2b48c"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bebegig-animation {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 200px;
+            height: 300px;
+            animation: swayWind 6s ease-in-out infinite;
+        }
+
+        .bebegig-head {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #f4e4bc, #d2b48c);
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 70px;
+            border: 4px solid #8b4513;
+            animation: bobble 3s ease-in-out infinite;
+        }
+
+        .bebegig-eyes {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 8px;
+            height: 8px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            box-shadow: 25px 0 0 #1a1a1a;
+        }
+
+        .bebegig-body {
+            width: 40px;
+            height: 120px;
+            background: linear-gradient(145deg, #d2b48c, #a0522d);
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            border-radius: 20px 20px 5px 5px;
+        }
+
+        .bebegig-arms {
+            position: absolute;
+            top: 100px;
+            left: 40px;
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(145deg, #d2b48c, #a0522d);
+            border-radius: 10px;
+            transform-origin: left center;
+            animation: swingArms 4s ease-in-out infinite;
+        }
+
+        .bebegig-legs {
+            position: absolute;
+            top: 190px;
+            left: 85px;
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(145deg, #8b4513, #654321);
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--putih);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--putih);
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(145deg, var(--coklat-tanah), #a0522d);
+            color: var(--putih);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(139,69,19,0.4);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139,69,19,0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--hitam);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--hijau-sawah), var(--coklat-tanah));
+            border-radius: 2px;
+        }
+
+        /* Latar Belakang */
+        .latar-belakang {
+            background: linear-gradient(135deg, var(--putih), #f0f8f0);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--hitam);
+        }
+
+        .illustration {
+            text-align: center;
+        }
+
+        .sawah-bg {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(180deg, var(--hijau-muda) 0%, var(--hijau-sawah) 50%, #2d5016 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sawah-padi {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(210,180,140,0.3) 10px,
+                rgba(210,180,140,0.3) 20px
+            );
+        }
+
+        /* Kegiatan */
+        .kegiatan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .kegiatan-card {
+            background: var(--putih);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .kegiatan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--hijau-sawah);
+            box-shadow: 0 20px 40px rgba(74,124,89,0.2);
+        }
+
+        .kegiatan-icon {
+            font-size: 3rem;
+            color: var(--hijau-sawah);
+            margin-bottom: 1rem;
+        }
+
+        /* Kontak */
+        .kontak {
+            background: linear-gradient(135deg, var(--coklat-muda), var(--coklat-tanah));
+            color: var(--putih);
+            text-align: center;
+        }
+
+        .kontak-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .kontak-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .kontak-item i {
+            font-size: 2.5rem;
+            color: var(--hijau-sawah);
+            margin-bottom: 1rem;
+        }
+
+        .phone-link {
+            color: var(--putih);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .phone-link:hover {
+            color: var(--hijau-muda);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--hitam);
+            color: var(--putih);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes swayWind {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(2deg) translateY(-5px); }
+        }
+
+        @keyframes bobble {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes swingArms {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .bebegig-animation {
+                left: 5%;
+                width: 150px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                Festival Bebegig Waluran
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#latar-belakang">Latar Belakang</a></li>
+                <li><a href="#sejarah">Sejarah</a></li>
+                <li><a href="#kegiatan">Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="bebegig-animation">
+            <div class="bebegig-head">
+                <div class="bebegig-eyes"></div>
+            </div>
+            <div class="bebegig-body"></div>
+            <div class="bebegig-arms"></div>
+            <div class="bebegig-legs"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Festival Bebegig</h1>
+            <p>Kecamatan Waluran, Kabupaten Sukabumi<br>
+            Melestarikan Budaya Sunda dari Sawah ke Panggung</p>
+            <a href="#kegiatan" class="cta-button">Jelajahi Festival</a>
+        </div>
+    </section>
+
+    <!-- Latar Belakang & Sejarah -->
+    <section id="latar-belakang" class="latar-belakang">
+        <h2 class="section-title">Latar Belakang</h2>
+        <div class="content-grid">
+            <div class="content-text">
+                <p>Festival Bebegig merupakan salah satu event budaya yang diselenggarakan di Kecamatan Waluran, Kabupaten Sukabumi. Kegiatan ini tidak hanya menjadi ajang hiburan bagi masyarakat, tetapi juga memiliki peran penting dalam menjaga dan melestarikan budaya lokal Sunda yang mulai tergerus oleh perkembangan zaman.</p>
+                
+                <h3 id="sejarah" style="margin: 2rem 0 1rem 0; color: var(--coklat-tanah);">Sejarah Bebegig</h3>
+                <p>Tradisi Bebegig sendiri berawal dari bentuk orang-orangan sawah yang digunakan oleh petani untuk mengusir hama. Seiring waktu, bentuk tersebut berkembang menjadi simbol budaya yang memiliki nilai estetika dan filosofis. Dalam perkembangannya, Festival Bebegig menghadirkan berbagai kegiatan seperti arak-arakan, pertunjukan seni, serta keterlibatan masyarakat secara langsung.</p>
+                
+                <p><strong>Budaya bukan hanya warisan, tetapi identitas yang terus hidup dan berkembang di tengah masyarakat.</strong></p>
+            </div>
+            <div class="illustration">
+                <div class="sawah-bg">
+                    <div class="sawah-padi"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan -->
+    <section id="kegiatan">
+        <h2 class="section-title">Kegiatan Festival</h2>
+        <div class="kegiatan-grid">
+            <div class="kegiatan-card">
+                <div class="kegiatan-icon">
+                    <i class="fas fa-parade"></i>
+                </div>
+                <h3>Arak-Arakan Bebegig</h3>
+                <p>Parade kreatif bebegig raksasa yang melibatkan seluruh warga, memadukan seni tradisional Sunda dengan kreatifitas modern.</p>
+            </div>
+            <div class="kegiatan-card">
+                <div class="kegiatan-icon">
+                    <i class="fas fa-mask"></i>
+                </div>
+                <h3>Pertunjukan Seni</h3>
+                <p>Tari Jaipong, Rampak Kendang, dan pertunjukan wayang golek dengan tema bebegig yang autentik.</p>
+            </div>
+            <div class="kegiatan-card">
+                <div class="kegiatan-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Keterlibatan Masyarakat</h3>
+                <p>Lomba membuat bebegig, pameran kerajinan sawah, dan workshop budaya Sunda untuk semua kalangan.</p>
+            </div>
+        </div>
+    </section>
